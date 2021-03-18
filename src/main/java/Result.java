@@ -3,10 +3,22 @@ import java.util.*;
 public class Result {
     public static List<Integer> gradingStudents(List<Integer> grades) {
 
+        if(!isValidList(grades)){
+            return null;
+        }
+
+        if(!isValidNumberOfStudents(grades.get(0))){
+            return null;
+        }
+
         List<Integer> result = new ArrayList<Integer>();
 
         for(int i = 1; i <= grades.get(0); i++){
+            if (isValidGrade(grades.get(i))) {
                 result.add(roundUpGrade(grades.get(i)));
+            } else {
+                return null;
+            }
         }
 
         return result;
@@ -26,6 +38,31 @@ public class Result {
             return false;
         else
             return true;
+    }
+
+    private static boolean isValidGrade(Integer x){
+        if(x != null) {
+            if (x <= 100 && x >= 0)
+                return true;
+            else
+                return false;
+        } else {
+            return false;
+        }
+    }
+
+    private static boolean isValidList(List<Integer> x){
+        if(x != null)
+            return true;
+        else
+            return false;
+    }
+
+    private static boolean isValidNumberOfStudents(Integer x){
+        if(x != null && x >= 1 && x <= 60)
+            return true;
+        else
+            return false;
     }
 
 }
