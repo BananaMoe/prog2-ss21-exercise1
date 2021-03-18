@@ -7,20 +7,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 
 public class ResultTest {
 
     @BeforeAll
-    static void init(){
-
-    }
+    static void init(){}
 
     @AfterAll
-    public static void finish(){
-
-    }
+    public static void finish(){}
 
     @Test
     void grading1() {
@@ -37,14 +31,28 @@ public class ResultTest {
     }
 
     @Test
-    void numberOfStudents1() {
+    void validNumberOfStudents1() {
         List<Integer> expected = null;
         List<Integer> actual = Result.gradingStudents(Arrays.asList(130,38,43,95,0,1,40,100,14));
         assertEquals(expected, actual);
     }
 
     @Test
-    void numberOfStudents2() {
+    void validNumberOfStudents2() {
+        List<Integer> expected = null;
+        List<Integer> actual = Result.gradingStudents(Arrays.asList(-55,38,43,95,0,1,40,100,14));
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void validNumberOfStudents3() {
+        List<Integer> expected = null;
+        List<Integer> actual = Result.gradingStudents(Arrays.asList(3,38,43,95,0,1,40,100,14));
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void validNumberOfStudents4() {
         List<Integer> expected = null;
         List<Integer> actual = Result.gradingStudents(Arrays.asList(null,38,43,95,0,1,40,100,14));
         assertEquals(expected, actual);
@@ -65,12 +73,18 @@ public class ResultTest {
     }
 
     @Test
+    void validGrades3() {
+        List<Integer> expected = null;
+        List<Integer> actual = Result.gradingStudents(Arrays.asList(8,38,43,95,0,101,40,100,14));
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void validList1() {
         List<Integer> expected = null;
         List<Integer> actual = Result.gradingStudents(null);
         assertEquals(expected, actual);
     }
-
 
 
 

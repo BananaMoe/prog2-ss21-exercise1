@@ -5,9 +5,7 @@ public class Result {
 
         if(!isValidList(grades)){
             return null;
-        }
-
-        if(!isValidNumberOfStudents(grades.get(0))){
+        } else if(!isValidNumberOfStudents(grades)){
             return null;
         }
 
@@ -20,7 +18,6 @@ public class Result {
                 return null;
             }
         }
-
         return result;
     }
 
@@ -41,14 +38,11 @@ public class Result {
     }
 
     private static boolean isValidGrade(Integer x){
-        if(x != null) {
-            if (x <= 100 && x >= 0)
-                return true;
-            else
-                return false;
-        } else {
+        if (x != null && x <= 100 && x >= 0)
+            return true;
+        else
             return false;
-        }
+
     }
 
     private static boolean isValidList(List<Integer> x){
@@ -58,11 +52,10 @@ public class Result {
             return false;
     }
 
-    private static boolean isValidNumberOfStudents(Integer x){
-        if(x != null && x >= 1 && x <= 60)
+    private static boolean isValidNumberOfStudents(List<Integer> x){
+        if(x.get(0) != null && x.get(0) >= 1 && x.get(0) <= 60 && x.get(0) == x.size()-1)
             return true;
         else
             return false;
     }
-
 }
